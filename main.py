@@ -12,9 +12,11 @@ import cv2
 import imutils
 import numpy as np
 
-filter = 'none'
+filter = 'none' # Type of the filter | See Below
 type = 0 #Type 1 = .png | Type 2 = .jpg
 
+
+# Printing The welcome message.
 print("██████╗░██╗░░██╗░█████╗░████████╗░█████╗░██████╗░██╗░░░██╗")
 print("██╔══██╗██║░░██║██╔══██╗╚══██╔══╝██╔══██╗██╔══██╗╚██╗░██╔╝")
 print("██████╔╝███████║██║░░██║░░░██║░░░██║░░██║██████╔╝░╚████╔╝░")
@@ -32,6 +34,7 @@ print('Now, Please select the type of your file. Type the number specified under
 print('1 -> .png')
 print('2 -> .jpg')
 
+# Asking what file type the user has.
 type = input("File Type:")
 type = int(type)
 
@@ -48,6 +51,8 @@ else:
     print('')
     print('Unsupported type.')
     print('')
+
+# Printing the Filter Variants.
 print('')
 print('Now, Please select the filter you want to be applied to your image.')
 print('1. - GaussianBlur')
@@ -60,106 +65,132 @@ print('7. - Resize')
 print('8. - Rotate (With Cropping)')
 print('9. - Rotate (Without Cropping)')
 
+# Asks what filter do u want applied.
 filter = input("Filter:")
 filter = int(filter)
 
 
-
+# PNG | Filter Verification & Aplication.
 if type == 1:
   image = cv2.imread("image.png")
   if filter == 1:
     blurred = cv2.GaussianBlur(image , (17 , 17) , 0)
+    cv2.imwrite("output.jpg", blurred)
     cv2.imshow("PhotoPY Output" , blurred)
     cv2.waitKey(0)
   if filter == 2:
     gray = cv2.cvtColor(image , cv2.COLOR_BGR2GRAY)
+    cv2.imwrite("output.jpg", gray)
     cv2.imshow("PhotoPY Output" , gray)
     cv2.waitKey(0)
   if filter == 3:
       for i in range(0,3):
          eroded = cv2.erode(image.copy() , None , iterations = i + 1)
+         cv2.imwrite("output.jpg", eroded)
          cv2.imshow("Eroded {} times [PRESS ANY KEY TO CLOSE]".format(i+ 1) , eroded)
          cv2.waitKey(0)
   if filter == 4:
      for i in range(0,3):
        dilated = cv2.dilate(image.copy() , None , iterations = i + 1)
+       cv2.imwrite("output.jpg", dilated)
        cv2.imshow("Dilated {} times [PRESS ANY KEY TO CLOSE]".format(i+ 1) , dilated)
        cv2.waitKey(0)
   if filter == 5:
     M = np.ones(image.shape , dtype = "uint8") * 100
     added = cv2.add(image , M)
+    cv2.imwrite("output.jpg", added)
     cv2.imshow("PhotoPY Output" , added)
     cv2.waitKey(0)
   if filter == 6:
     M = np.ones(image.shape , dtype = "uint8") * 100
     subtract = cv2.subtract(image, M)
+    cv2.imwrite("output.jpg", subtract)
     cv2.imshow("PhotoPY Output" , subtract)
     cv2.waitKey(0)
   if filter == 7:
     number_resize = input("What size should the output be?")
     number_resize = int(number_resize)
     resized = imutils.resize(image , width=number_resize)
+    cv2.imwrite("output.jpg", resized)
     cv2.imshow("PhotoPY Output" , resized)
     cv2.waitKey(0)
   if filter == 8:
     number_rotate = input("How much should the output be rotated?")
     number_rotate = int(number_rotate)
     rotated = imutils.rotate(image , number_rotate)
+    cv2.imwrite("output.jpg", rotated)
     cv2.imshow("PhotoPY Output" , rotated)
     cv2.waitKey(0)
   if filter == 9:
     number_rotate = input("How much should the output be rotated?")
     number_rotate = int(number_rotate)
     rotated = imutils.rotate_bound(image , number_rotate)
+    cv2.imwrite("output.jpg", rotated)
     cv2.imshow("PhotoPY Output" , rotated)
     cv2.waitKey(0)
+  if filter == 10:
+     pass
 
 
+# JPG | Filter Verification & Aplication.
 if type == 2:
   image = cv2.imread("image.jpg")
   if filter == 1:
     blurred = cv2.GaussianBlur(image , (17 , 17) , 0)
+    cv2.imwrite("output.jpg", blurred)
     cv2.imshow("PhotoPY Output" , blurred)
     cv2.waitKey(0)
   if filter == 2:
     gray = cv2.cvtColor(image , cv2.COLOR_BGR2GRAY)
+    cv2.imwrite("output.jpg", gray)
     cv2.imshow("PhotoPY Output" , gray)
     cv2.waitKey(0)
   if filter == 3:
       for i in range(0,3):
          eroded = cv2.erode(image.copy() , None , iterations = i + 1)
+         cv2.imwrite("output.jpg", eroded)
          cv2.imshow("Eroded {} times [PRESS ANY KEY TO CLOSE]".format(i+ 1) , eroded)
          cv2.waitKey(0)
   if filter == 4:
      for i in range(0,3):
        dilated = cv2.dilate(image.copy() , None , iterations = i + 1)
+       cv2.imwrite("output.jpg", dilated)
        cv2.imshow("Dilated {} times [PRESS ANY KEY TO CLOSE]".format(i+ 1) , dilated)
        cv2.waitKey(0)
   if filter == 5:
     M = np.ones(image.shape , dtype = "uint8") * 100
     added = cv2.add(image , M)
+    cv2.imwrite("output.jpg", added)
     cv2.imshow("PhotoPY Output" , added)
     cv2.waitKey(0)
   if filter == 6:
     M = np.ones(image.shape , dtype = "uint8") * 100
     subtract = cv2.subtract(image, M)
+    cv2.imwrite("output.jpg", subtract)
     cv2.imshow("PhotoPY Output" , subtract)
     cv2.waitKey(0)
   if filter == 7:
     number_resize = input("What size should the output be?")
     number_resize = int(number_resize)
     resized = imutils.resize(image , width=number_resize)
+    cv2.imwrite("output.jpg", resized)
     cv2.imshow("PhotoPY Output" , resized)
     cv2.waitKey(0)
   if filter == 8:
     number_rotate = input("How much should the output be rotated?")
     number_rotate = int(number_rotate)
     rotated = imutils.rotate(image , number_rotate)
+    cv2.imwrite("output.jpg", rotated)
     cv2.imshow("PhotoPY Output" , rotated)
     cv2.waitKey(0)
   if filter == 9:
     number_rotate = input("How much should the output be rotated?")
     number_rotate = int(number_rotate)
     rotated = imutils.rotate_bound(image , number_rotate)
+    cv2.imwrite("output.jpg", rotated)
     cv2.imshow("PhotoPY Output" , rotated)
     cv2.waitKey(0)
+  if filter == 10:
+     pass
+
+
