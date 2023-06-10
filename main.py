@@ -6,7 +6,7 @@
 #██║░░░░░██║░░██║╚█████╔╝░░░██║░░░╚█████╔╝██║░░░░░░░░██║░░░
 #╚═╝░░░░░╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░░╚════╝░╚═╝░░░░░░░░╚═╝░░░
 #
-# © MrBogdanYT. All rights reserved.
+# (c) MrBogdanYT. All rights reserved.
 
 import cv2
 import imutils
