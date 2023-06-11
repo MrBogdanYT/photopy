@@ -6,7 +6,7 @@
 #██║░░░░░██║░░██║╚█████╔╝░░░██║░░░╚█████╔╝██║░░░░░░░░██║░░░
 #╚═╝░░░░░╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░░╚════╝░╚═╝░░░░░░░░╚═╝░░░
 #
-# (c) MrBogdanYT. All rights reserved.
+# © MrBogdanYT. All rights reserved.
 
 import cv2
 import imutils
@@ -52,27 +52,42 @@ elif type == 2:
     print("")
     print("JPG type was sellected.")
     print("")
+elif type ==3:
+   print("Admin Panel Activated.")
 else:
     print('')
     print('Unsupported type.')
     print('')
-
+  
+if type == 1 or type == 2:
 # Printing the Filter Variants.
-print('')
-print('Now, Please select the filter you want to be applied to your image.')
-print('1. - GaussianBlur')
-print('2. - Gray and White')
-print('3. - Erosion')
-print('4. - Dilation')
-print('5. - Lighter')
-print('6. - Darker')
-print('7. - Resize')
-print('8. - Rotate (With Cropping)')
-print('9. - Rotate (Without Cropping)')
+  print('')
+  print('Now, Please select the filter you want to be applied to your image.')
+  print('1. - GaussianBlur')
+  print('2. - Gray and White')
+  print('3. - Erosion')
+  print('4. - Dilation')
+  print('5. - Lighter')
+  print('6. - Darker')
+  print('7. - Resize')
+  print('8. - Rotate (With Cropping)')
+  print('9. - Rotate (Without Cropping)')
+  filter = input("Filter:")
+  filter = int(filter)
+if type == 3:
+   print("Please enter Down Below the information.")
+   adminName = input("Name:")
+   adminPassword = input("Password:")
+   if adminName == 'Admin' and adminPassword == 'admin':
+      print("")
+      print('Logged in.')
+      print('')
+      print('')
+      print('Statistics:')
+      print("SOON")
 
-# Asks what filter do u want applied.
-filter = input("Filter:")
-filter = int(filter)
+else:
+   print('Your file is unsupported! Please try again.')
 
 
 # PNG | Filter Verification & Aplication.
