@@ -52,8 +52,6 @@ elif type == 2:
     print("")
     print("JPG type was sellected.")
     print("")
-elif type ==3:
-   print("Admin Panel Activated.")
 else:
     print('')
     print('Unsupported type.')
@@ -74,20 +72,7 @@ if type == 1 or type == 2:
   print('9. - Rotate (Without Cropping)')
   filter = input("Filter:")
   filter = int(filter)
-if type == 3:
-   print("Please enter Down Below the information.")
-   adminName = input("Name:")
-   adminPassword = input("Password:")
-   if adminName == 'Admin' and adminPassword == 'admin':
-      print("")
-      print('Logged in.')
-      print('')
-      print('')
-      print('Statistics:')
-      print("SOON")
 
-else:
-   print('Your file is unsupported! Please try again.')
 
 
 # PNG | Filter Verification & Aplication.
@@ -148,8 +133,6 @@ if type == 1:
     cv2.imwrite("output.jpg", rotated)
     cv2.imshow("PhotoPY Output" , rotated)
     cv2.waitKey(0)
-  if filter == 10:
-     pass
 
 
 # JPG | Filter Verification & Aplication.
@@ -210,6 +193,3 @@ if type == 2:
     cv2.imwrite("output.jpg", rotated)
     cv2.imshow("PhotoPY Output" , rotated)
     cv2.waitKey(0)
-  if filter == 10:
-     pass
-
